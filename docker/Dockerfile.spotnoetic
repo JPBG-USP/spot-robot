@@ -1,4 +1,4 @@
-FROM osfr/ros:noetic-desktop-full
+FROM osrf/ros:noetic-desktop-full
 
 # Setando usuário no container
 ARG USERNAME=ros
@@ -16,6 +16,15 @@ RUN apt-get update \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     && rm -rf /var/lib/apt/lists/*
+
+# Installing Softwares
+RUN apt-get update \
+    && apt-get install -y rviz\
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update \
+    && apt-get install -qqy x11-apps
+
 
 # Configurando o entrypoint script
 COPY config/entrypoint.sh /entrypoint.sh
