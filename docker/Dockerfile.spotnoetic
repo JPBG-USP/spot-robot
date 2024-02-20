@@ -25,8 +25,7 @@ RUN apt-get update \
 RUN apt-get update \
     && apt-get install -qqy x11-apps
 
-
-# Configurando o entrypoint script
+# Configurando o entrypoint script e bashrc
 COPY config/entrypoint.sh /entrypoint.sh
 COPY config/bashrc /home/${USERNAME}/.bashrc
 ENTRYPOINT [ "/bin/bash", "/entrypoint.sh" ]
