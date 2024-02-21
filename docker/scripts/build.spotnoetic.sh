@@ -8,7 +8,9 @@ elif [[ ! $PWD = *spot-robot/docker ]]; then
     return 1
 fi
 
-docker build -f Dockerfile.spotnoetic\
-    -t spot-robot:spotnoetic\
-    --rm\
+docker build \
+    --network=host \
+    -f Dockerfile.spotnoetic \
+    -t spot-robot:spotnoetic \
+    --rm \
     .

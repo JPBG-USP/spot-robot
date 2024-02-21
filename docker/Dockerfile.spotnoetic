@@ -21,9 +21,8 @@ RUN apt-get update \
 RUN apt-get update \
     && apt-get install -y rviz\
     && rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update \
-    && apt-get install -qqy x11-apps
+#RUN apt-get install -y python-pip
+#RUN pip install bosdyn-client bosdyn-mission bosdyn-api bosdyn-core
 
 # Configurando o entrypoint script e bashrc
 COPY config/entrypoint.sh /entrypoint.sh
