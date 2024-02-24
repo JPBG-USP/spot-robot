@@ -21,8 +21,13 @@ RUN apt-get update \
 RUN apt-get update \
     && apt-get install -y rviz\
     && rm -rf /var/lib/apt/lists/*
-#RUN apt-get install -y python-pip
-#RUN pip install bosdyn-client bosdyn-mission bosdyn-api bosdyn-core
+
+
+# Para futuros testes usando python
+
+#RUN apt-get update \
+#    && apt-get install-y python3 python3-pip 
+#RUN pip3 install bosdyn-client bosdyn-mission bosdyn-api bosdyn-core
 
 # Configurando o entrypoint script e bashrc
 COPY config/entrypoint.sh /entrypoint.sh
